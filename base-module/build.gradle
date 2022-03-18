@@ -1,0 +1,95 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-platform-android'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+            buildConfigField("String", "BASE_URL", '"https://co-api.51wnl.com/"')
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+            buildConfigField("String", "BASE_URL", '"https://co-api.51wnl.com/"')
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    // App dependencies
+    api "androidx.appcompat:appcompat:$appCompatVersion"
+    api "androidx.cardview:cardview:$cardVersion"
+    api "com.google.android.material:material:$materialVersion"
+    api "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    api "androidx.annotation:annotation:$androidXAnnotations"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    api "com.jakewharton.timber:timber:$timberVersion"
+    api "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
+    api "androidx.room:room-runtime:$roomVersion"
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    api "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    api "androidx.annotation:annotation:$annotationVersion"
+    api "androidx.constraintlayout:constraintlayout:$constraintlayout"
+
+
+
+    // Architecture Components
+    api "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    api "androidx.room:room-ktx:$roomVersion"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
+    api "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    api "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    // Hilt
+    api "com.google.dagger:hilt-android:$hiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+
+
+    api "androidx.fragment:fragment:$fragmentVersion"
+
+    // Kotlin
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    api "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+
+    // retrofit
+    api "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpInterceptorVersion"
+    implementation "com.google.code.gson:gson:$gsoniVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$gsoniVersion"
+    implementation("com.github.bumptech.glide:glide:$glid") {
+        exclude group: "com.android.support"
+    }
+}

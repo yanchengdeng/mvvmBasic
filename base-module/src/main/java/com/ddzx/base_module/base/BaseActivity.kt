@@ -2,7 +2,9 @@ package com.ddzx.base_module.base
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.ddzx.base_module.R
 
 
 abstract class BaseActivity: AppCompatActivity() {

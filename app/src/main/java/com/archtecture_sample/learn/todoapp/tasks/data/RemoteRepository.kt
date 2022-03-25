@@ -2,7 +2,6 @@ package com.archtecture_sample.learn.todoapp.tasks.data
 
 import com.archtecture_sample.learn.todoapp.tasks.data.dto.calendar.CalendarData
 import com.archtecture_sample.learn.todoapp.tasks.data.dto.calendar.FestivalInfo
-import com.ddzx.base_module.config.BaseConfig
 import com.ddzx.base_module.data.error.DEFAULT_ERROR
 import com.ddzx.base_module.data.error.NETWORK_ERROR
 import com.ddzx.base_module.data.error.NO_INTERNET_CONNECTION
@@ -10,9 +9,6 @@ import com.ddzx.base_module.data.remote.Resource
 import com.ddzx.base_module.data.remote.ServiceGenerator
 import com.ddzx.base_module.util.JsonUtils
 import com.ddzx.base_module.util.NetworkConnectivity
-import com.squareup.moshi.Json
-import retrofit2.Response
-import java.io.IOException
 import javax.inject.Inject
 
 

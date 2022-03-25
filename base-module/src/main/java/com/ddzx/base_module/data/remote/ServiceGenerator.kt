@@ -1,6 +1,7 @@
 package com.ddzx.base_module.data.remote
 
 import com.ddzx.base_module.BuildConfig
+import com.ddzx.base_module.config.BaseConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -28,9 +29,10 @@ class ServiceGenerator @Inject constructor() {
         val original = chain.request()
 
         val request = original.newBuilder()
-                .header(contentType, contentTypeValue)
-                .method(original.method, original.body)
-                .build()
+            .header(contentType, contentTypeValue)
+            .headers(BaseConfig.headers)
+            .method(original.method, original.body)
+            .build()
 
         chain.proceed(request)
     }
@@ -51,9 +53,9 @@ class ServiceGenerator @Inject constructor() {
         okHttpBuilder.readTimeout(timeoutRead.toLong(), TimeUnit.SECONDS)
         val client = okHttpBuilder.build()
         retrofit = Retrofit.Builder()
-                .baseUrl(BuildConfig.BASE_URL).client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+            .baseUrl(BuildConfig.BASE_URL).client(client)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
     }
 
     fun <S> createService(serviceClass: Class<S>): S {

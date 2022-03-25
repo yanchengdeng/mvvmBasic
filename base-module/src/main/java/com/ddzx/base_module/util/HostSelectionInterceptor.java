@@ -10,9 +10,7 @@ import okhttp3.Request;
  * Typically this would be used to implement client-side load balancing or to use the webserver
  * that's nearest geographically.
  */
-public final class DynamicBaseUrl {
-
-  static final class HostSelectionInterceptor implements Interceptor {
+public class HostSelectionInterceptor implements Interceptor {
     private volatile String host;
 
     public void setHost(String host) {
@@ -30,4 +28,3 @@ public final class DynamicBaseUrl {
       return chain.proceed(request);
     }
   }
-}

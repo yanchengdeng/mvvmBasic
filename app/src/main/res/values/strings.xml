@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">archtecture-sample-learn</string>
+    <string name="update_url">动态更改域名</string>
+    <string name="load_image">加载图片</string>
 </resources>

@@ -13,11 +13,8 @@ class ImageLoadActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_image_load)
 
-
-
         val url = "https://profile-avatar.csdnimg.cn/fbbb5973b2ba4a999714fc6dd99a026a_qq_42351033.jpg"
-
-        findViewById<ImageView>(R.id.imageView1).loadImage(com.ddzx.base_module.R.drawable.test )
+        findViewById<ImageView>(R.id.imageView1).loadImage(com.ddzx.base_module.R.drawable.completedTaskBackground )
         findViewById<ImageView>(R.id.imageView3).loadImage(url )
         findViewById<ImageView>(R.id.imageView4).loadCircleImage(url )
         findViewById<ImageView>(R.id.imageView5).loadRoundImage(url )

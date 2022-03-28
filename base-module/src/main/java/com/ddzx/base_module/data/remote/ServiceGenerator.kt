@@ -1,7 +1,10 @@
 package com.ddzx.base_module.data.remote
 
+import android.support.v4.media.session.MediaSessionCompat
 import com.ddzx.base_module.BuildConfig
 import com.ddzx.base_module.config.BaseConfig
+import com.ddzx.base_module.util.CacheInterceptor
+import com.ddzx.base_module.util.TokenOutInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -48,6 +51,8 @@ class ServiceGenerator @Inject constructor() {
 
     init {
         okHttpBuilder.addInterceptor(headerInterceptor)
+//        okHttpBuilder.addInterceptor(CacheInterceptor())
+//        okHttpBuilder.addInterceptor(TokenOutInterceptor())
         okHttpBuilder.addInterceptor(logger)
         okHttpBuilder.connectTimeout(timeoutConnect.toLong(), TimeUnit.SECONDS)
         okHttpBuilder.readTimeout(timeoutRead.toLong(), TimeUnit.SECONDS)

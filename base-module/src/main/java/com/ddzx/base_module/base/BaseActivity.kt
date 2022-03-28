@@ -2,18 +2,29 @@ package com.ddzx.base_module.base
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.ddzx.base_module.R
 
 
 abstract class BaseActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initViewBinding()
+        initData()
         doListen()
         doObserver()
     }
+
+    /**
+     * 初始化viewBind
+     */
+    protected abstract fun initViewBinding()
+
+    /**
+     * 初始化数据
+     */
+    abstract fun initData()
+
 
     /**
      * 处理事件

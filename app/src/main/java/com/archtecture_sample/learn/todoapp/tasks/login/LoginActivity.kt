@@ -1,37 +1,47 @@
 package com.archtecture_sample.learn.todoapp.tasks.login
 
-import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import com.archtecture_sample.learn.R
+import com.archtecture_sample.learn.databinding.ActivityLoginBinding
+import com.ddzx.base_module.base.BaseActivity
 import com.ddzx.base_module.data.remote.Status
+import com.ddzx.base_module.view.clickNoRepeat
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
  *@Describe ：标记
  **/
 @AndroidEntryPoint
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
-//    private  val loginViewModel  by viewModels<LoginViewModel>()
 
     private val loginViewModel: LoginViewModel by viewModels()
-//    private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityLoginBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_task)
-        doListen()
-        doObserver()
+
+    /**
+     * 初始化viewBind
+     */
+    override fun initViewBinding() {
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+    }
+
+    /**
+     * 初始化数据
+     */
+    override fun initData() {
     }
 
     /**
      * 处理事件
      */
-    fun doListen() {
+    override fun doListen() {
+
         findViewById<Button>(R.id.button).setOnClickListener {
             loginViewModel.getFestivalInfo()
             loginViewModel.getCalendarInfo()
@@ -41,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
     /**
      * 处理数据
      */
-    fun doObserver() {
+    override fun doObserver() {
 
         loginViewModel.apply {
             calendarResponseInfo.observe(this@LoginActivity) {

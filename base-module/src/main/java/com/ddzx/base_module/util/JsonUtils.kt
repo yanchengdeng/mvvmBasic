@@ -19,9 +19,6 @@ object JsonUtils {
      * 数据解析
      */
     inline fun <reified T> json2Data(response: Resource<T>): Resource<T> {
-//            NO_INTERNET_CONNECTION -> Resource.error(msg = "无网络", status = NO_INTERNET_CONNECTION)
-//            NETWORK_ERROR -> Resource.error(msg = "网络异常", status = NETWORK_ERROR)
-//            is Int -> Resource.error(msg = "异常", status = response.status)
         return if (response.status == API_OK) {
             Resource.success(response.data)
         } else {

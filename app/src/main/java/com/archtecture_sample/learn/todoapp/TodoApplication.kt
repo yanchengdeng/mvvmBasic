@@ -2,7 +2,7 @@ package com.archtecture_sample.learn.todoapp
 
 import android.app.Application
 import com.archtecture_sample.learn.BuildConfig
-import com.ddzx.base_module.config.BaseConfig
+import com.ddzx.base_module.view.KxUtils
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
@@ -20,5 +20,7 @@ class TodoApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
+
+        KxUtils.install(this)
     }
 }

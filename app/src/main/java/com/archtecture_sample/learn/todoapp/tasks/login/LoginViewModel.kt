@@ -9,8 +9,6 @@ import com.archtecture_sample.learn.todoapp.tasks.data.dto.calendar.FestivalInfo
 import com.ddzx.base_module.base.BaseViewModel
 import com.ddzx.base_module.data.remote.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
